@@ -10,18 +10,17 @@ function getRandomHexColor() {
 }
 
 function createBoxes(amount) {
-  boxesEl.innerHTML = '';
+  let boxesHTML = '';
   for (let i = 0; i < amount; i += 1) {
-    const divEl = document.createElement('div');
-    divEl.style.width = `${30 + i * 10}px`;
-    divEl.style.height = `${30 + i * 10}px`;
-    divEl.style.backgroundColor = getRandomHexColor();
-
-    boxesEl.appendChild(divEl);
+    const size = 30 + i * 10;
+    const color = getRandomHexColor();
+    boxesHTML += `<div style="width: ${size}px; height: ${size}px; background-color: ${color}"></div>`;
   }
+  boxesEl.innerHTML = boxesHTML;
 }
 
 function destroyBoxes() {
+  numberInput.value = '';
   boxesEl.innerHTML = '';
 }
 
